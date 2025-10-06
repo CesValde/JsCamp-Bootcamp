@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;     /* hace que padding y border no aumenten el ancho */
+}
+
+body {
+    color: white; 
+    background-color: #010d1e;
+    font-family: Arial, Helvetica, sans-serif;
+}   
+
+header {
+    display: flex ;
+    height: auto; 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 2px solid rgba(79, 79, 79, 0.209);
+}
+
+.head-left,
+.head-right {
+    padding: 10px 20px;
+    background-color: #010d1e;
+}
+
+.head-left {
+    font-size: 20px ;
+    display: inline-flex;  
+    align-items: center;        /* Centra etiquetas en el medio del bloque*/
+    gap: 6px;
+    padding-left: 25px ;
+}
+
+.head-left a:nth-of-type(n+2) {
+    margin-left: 20px;              /* espacio mayor entre los demás links */
+    font-size: 14px;
+}
+
+.head-right {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 780px;
+}
+
+img {
+    border-radius: 30px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+header svg {
+    color: rgb(0, 94, 255);
+}
+
+header button {
+    background-color: rgb(0, 49, 105);
+    border-style: none;
+    border-radius: 8px;
+    height: 30px;
+    width: 80px;
+    color: rgb(1, 102, 209);
+    cursor: pointer;
+}
+
+.busqueda {
+    margin-top: 2%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.busqueda h1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.busqueda p {
+    text-align: center;
+    margin-top: 1%;
+}
+
+.busqueda h2 {
+    margin-top: 2%;
+    margin-bottom: 2.5%;
+}
+
+.busqueda svg {
+    position: absolute;
+    margin-left: 1.3rem;
+    margin-top: 3.2rem;
+    color: rgba(105, 105, 105, 0.718);
+}
+
+input {
+    color: white;
+    margin-top: 3%;
+    padding-left: 3.5rem;
+    border-color: rgba(105, 105, 105, 0.718);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 6px;
+    height: 3rem;
+    width: 100%;
+    background-color: #041329;
+}
+
+input:focus {
+    color: white;
+    outline: none;
+}
+
+.container-filtros {
+    margin-top: 1%;
+    display: flex;
+    gap: 10px;
+}
+
+select {
+    height: 2.3rem;
+    padding-right: 10px;        /* margen interno a la derecha */
+    padding-left: 10px;         /* margen interno a la izquierda */
+    border-style: none;
+    border-radius: 6px;
+    background-color: #112440;
+    color: white;
+}
+
+section {
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 10px;
+    border: rgba(79, 79, 79, 0.209);
+    border-style: solid;
+}
+
+.btn-aplicar {
+    color:white;
+    float: right;
+    height: 2.3rem;
+    width: 5rem;
+    border-radius: 7px;
+    border-style: none;
+    background-color: rgb(4, 90, 203);
+}
+
+.a small {
+    display: inline-block;      /* Aplico para poder hacer margin-top */
+    color: rgba(197, 196, 196, 0.718);
+    margin-top: 1%;
+}
+
+.a p {
+    margin-top: 1%;
+}
+
+.parraf-ofertas{
+    font-size: small;
+    color: rgba(197, 196, 196, 0.718);
+    width: 90%;
+}
+
+/* 
+    section > .a → selecciona todos los divs .a que son hijos directos del <section>.
+    :nth-child(n+2) → todos los divs desde el segundo en adelante (2, 3 y 4)
+    h3 → dentro de esos divs, selecciona solo el <h3>..
+*/
+section > .a:nth-child(n+1) h3 {
+    margin-top: 2%; /* o el valor que quieras */
+}
+
+/* Agrego margen abajo de los p  */
+section > .a:nth-child(n+4) p {
+    margin-bottom: 2%; /* o el valor que quieras */
+}
+
+/* Agrego margen a la izquierda a todos las etiquetas dentro del div */
+section > .a:nth-child(n+1)  {
+    margin-left: 2%; /* o el valor que quieras */
+}
+
+/* Agrego margen a la derecha al boton */
+section > .a:nth-child(n+1) button {
+    margin-right: 1.5%; /* o el valor que quieras */
+}
+
+a {
+    color: rgba(255, 255, 255, 0.913);
+    text-decoration: none;
+}
+
+hr {
+    border-color: rgba(79, 79, 79, 0.209);
+    height: 1px;
+    width: 100%;
+    margin-top: 2%;
+}
+
+footer {
+    text-align: center;
+}
+
+.nums {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    display: flex;
+    gap: 15px;              /* espacio entre los números */
+    display: inline-flex;  
+}
+
+.nums span:nth-child(n+1) {
+    padding: 12px;
+}
+
+.nums span:nth-child(2) {
+    background-color: rgb(4, 90, 203);
+    border-radius: 8px;
+    width: 40px;
+}

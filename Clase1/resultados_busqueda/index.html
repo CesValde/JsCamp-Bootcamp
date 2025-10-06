@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Resultados de Busqueda </title>
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen">
+</head>
+<body>
+    <header> 
+        <div class="head-left">
+            <svg width="34" height="34" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M12.08 24 4 19.248 9.955 8.752l8.085 4.744L18.045 4h11.91l.005 9.496 8.085-4.744L44 19.248 35.92 24 44 28.752l-5.955 10.496-8.085-4.744L29.955 44h-11.91l-.005-9.496-8.085 4.744L4 28.752z" fill="currentColor" fill-rule="evenodd"/></svg>
+            <a href=""> DevJobs </a>
+            <a href=""> Inicio </a>
+            <a href=""> Empleos </a>
+            <a href=""> Empresas </a>
+            <a href=""> Salarios </a>
+        </div>
+        <div class="head-right"> 
+            <button> Subir CV </button>
+            <img src="./uifaces-popular-avatar.jpg">
+        </div>
+    </header>
+     
+    <div class="busqueda">
+        <h1> Encuentra tu proximo trabajo </h1>
+        <p> Explora miles de oportunidades en el sector tecnologico. </p>
+        <svg xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+        <input type="text" placeholder="Buscar trabajos, empresas o habilidades"> 
+
+        <div class="container-filtros">  
+            <select name="select">
+                <option value="tecnologia" selected>Tecnología</option>
+                <option value="salud">Salud</option>
+                <option value="finanzas">Finanzas</option>
+            </select>
+            
+            <select name="select">
+                <option value="ubicacion" selected>Ubicacion</option>
+                <option value="españa">España</option>
+                <option value="remoto">Remoto</option>
+            </select>
+            
+            <select name="select">
+                <option value="tipo-de-contrato" selected>Tipo de contrato</option>
+                <option value="contrato">Contrato</option>
+                <option value="remporada">Temporada</option>
+            </select>
+            
+            <select name="select">
+                <option value="nivel-de-experiencia" selected>Nivel de experiencia</option>
+                <option value="junior">Junior</option>
+                <option value="senior">Senior</option>
+            </select>
+        </div>
+
+        <h2> Resultados de Busqueda </h2>
+    </div>
+
+    <section> 
+        <div class="a"> 
+            <button class="btn-aplicar"> Aplicar</button>
+            <h3 class="title-ofertas"> Ingeniero de Software </h3>
+            <small class="descrip-ofertas"> Tech Solutions Inc. | Remoto </small>
+            <p class="parraf-ofertas"> 
+                Buscamos un ingeniero de software con experiencia en desarrollo web y concocimientos en Javascript, React
+                y Node,js. El candidato ideal debe ser capaz de trabajar en equipo y tener buenas habilidades de comunicacion.
+            </p>       
+        </div>
+
+        <hr>
+
+        <div class="a"> 
+            <button class="btn-aplicar"> Aplicar</button>
+            <h3 class="title-ofertas"> Analista de datos </h3>
+            <small class="descrip-ofertas"> Data Driven Co. | Ciudad de Mexico </small>
+            <p class="parraf-ofertas"> 
+                Estamos buscando un analista de datos con experiencia en el manejo de grandes conjuntos de datos
+                y herramientas de visualizacion. Se requiere concocimientos en SQL, Python y R.
+            </p>
+        </div>
+
+        <hr>
+
+        <div class="a"> 
+            <button class="btn-aplicar"> Aplicar</button>
+            <h3 class="title-ofertas"> Desarrollador de Aplicaciones Moviles </h3>
+            <small class="descrip-ofertas"> Mobile Apps Ltd. | Guadalajara </small>
+            <p class="parraf-ofertas"> 
+                Buscamos un desarrollador de aplicaciones moviles con experiencia en iOS y/o Android.
+                El candidato debe tener conocimientos en Swift, Kotlin y el desarrollo de interfaces de usuario.
+            </p>
+        </div>
+
+        <hr>
+
+        <div class="a"> 
+            <button class="btn-aplicar"> Aplicar</button>
+            <h3 class="title-ofertas"> Ingeniero de DevOps </h3>
+            <small class="descrip-ofertas"> Cloud Services SA | Remoto </small>
+            <p class="parraf-ofertas"> 
+                Estamos buscando un ingeniero de DevOps con experiencia en la gestion de infraestructuras en la nube,
+                automatizacion de procesos y herramientas de integracion continua. Se requiere conocimientos en AWS, Azure o GCP.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="nums">
+            <span> &lt; </span>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span> &gt; </span>
+        </div>
+    </footer>
+</body>
+</html>
