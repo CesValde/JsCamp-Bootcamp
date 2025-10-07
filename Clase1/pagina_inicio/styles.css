@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;     /* hace que padding y border no aumenten el ancho */
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    /* background-image: url(./background.webp); */
+}
+
+.header {
+    background-color: #02132c;
+    display: flex;
+    align-items: center;                /* Centra verticalmente */
+    justify-content: space-between;     /* Distribuye los 3 bloques: logo, nav, botones */
+    padding: 10px 20px;
+}
+
+header div:nth-child(1) { 
+    /* background-color: red; */
+    display: inline-flex;
+}
+
+header svg {
+    color: rgb(0, 94, 255);
+}
+
+nav {
+    /* background-color: aqua; */
+    display: inline-flex;
+    gap: 30px;
+}
+
+nav a {
+    font-size: 15px;
+    text-decoration: none;
+    color: rgb(183, 183, 183);
+}
+
+header div:nth-child(3) { 
+    /* background-color: rgb(2, 185, 133); */
+    display: flex;
+    gap: 15px;
+}
+
+header div:nth-child(3) button:nth-child(1) { 
+    background-color: rgb(0, 49, 105);
+    color: rgb(2, 118, 243);
+    border-radius: 6px;
+    border-style: none;
+    padding: 6px;
+    width: 140px;
+}
+
+header div:nth-child(3) button:nth-child(2) { 
+    background-color: rgb(48, 70, 95);
+    color: rgb(255, 255, 255);
+    border-radius: 6px;
+    border-style: none;
+    padding: 6px;
+    width: 110px;
+}
+
+/* Section 1 */
+
+main section:nth-child(1) {
+    /* background-image: url(./background.webp); */
+    background-color: rgb(194, 166, 132);
+    text-align: center;
+    padding-top: 100px;
+}
+
+h1 {
+    font-size: 56px;
+    font-weight: 700;
+}
+
+main section:nth-child(1) p {
+    margin-top: 10px;
+}
+
+form {
+    position: relative;
+    margin-top: 25px;
+    padding-bottom: 130px;
+}
+
+form input {
+    background-color: #173056;
+    padding: 15px 120px 15px 50px  ;
+    width: 30%;
+    border-style: none;
+    border-radius: 8px;
+}
+
+form input:focus {
+    color: aquamarine;
+    outline: none;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.465); /* o cualquier color */
+  opacity: 1; /* asegúrate de que no sea semitransparente */
+}
+
+form button {
+    position: absolute;
+    right: 665px;
+
+    
+    color: white;
+    width: 80px;
+    height: 35px;
+    border-radius: 8px;
+    border-style: none;
+    background-color: rgb(2, 118, 243);
+    cursor: pointer;
+}
+
+/* Section 2 */
+
+main section:nth-child(2) header{
+    background-color: rgb(158, 29, 51);
+    text-align: center;
+}
+
+main section:nth-child(2) header h2{
+    background-color: rgb(112, 77, 31);
+    text-align: center;
+}
+
+main section:nth-child(2) {
+    /* background-image: url(./background.webp); */
+
+
+    text-align: center;
+}
+
+
+
+main section:nth-child(2) footer {
+    /* background-image: url(./background.webp); */
+
+    background-color: rgb(99, 39, 109);
+}
+
+
+
+/* footer */
+
+footer {
+    background-color: blueviolet;
+}

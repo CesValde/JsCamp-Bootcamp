@@ -1,65 +1,73 @@
 <!DOCTYPE html> 
 <html lang="es">
-    <head> 
-        <title> DevJobs - Inicios </title>
-        <meta charset="UTF-8">
-        <meta name="description" content="Encuentra las mejores ofertas de trabajo para desarrolladores en DevJobs"> 
-    </head>
+<head> 
+    <title> DevJobs - Inicios </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- lo que sale en la busqueda de google -->
+    <meta name="description" content="Encuentra las mejores ofertas de trabajo para desarrolladores en DevJobs"> 
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen">
+</head>
 
-    <body> 
-        <header> 
+<body> 
+    <header class="header"> 
+        <div> 
+            <svg width="34" height="34" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M12.08 24 4 19.248 9.955 8.752l8.085 4.744L18.045 4h11.91l.005 9.496 8.085-4.744L44 19.248 35.92 24 44 28.752l-5.955 10.496-8.085-4.744L29.955 44h-11.91l-.005-9.496-8.085 4.744L4 28.752z" fill="currentColor" fill-rule="evenodd"/></svg>
             <h2> DevJobs </h2>
-            <nav> 
-                <a href="">Incios</a>
-                <a href="">Empleos</a>
-            </nav>
-            <div> 
-                <a href="">Publicar un empleo</a>
-                <a href="">Iniciar sesion</a>
-            </div>
-        </header>
-        <main> 
-            <section>
-                <img src="./" />
+        </div>
+        <nav> 
+            <a href=""> Buscar </a>
+            <a href=""> Empleos </a>
+            <a href=""> Empresas </a>
+            <a href=""> Salarios </a>
+        </nav>
+        <div> 
+            <button>Publicar un empleo</a>
+            <button>Iniciar sesion</a>
+        </div>
+    </header>
+    <main> 
+        <section>
+            <h1> Encuentra el trabajo de tu sueños</h1>
+            <p> Unete a la comunidad mas grande de desarrolladores y encuentra tu proxima oportunidad</p>
 
-                <h1> Encuentra el trabajo de tu sueños</h1>
-                <p> Unete a la comunidad mas grande de desarrolladores y encuentra tu proxima oportunidad</p>
+            <form role="search">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+                <input type="text" placeholder="Buscar empleo por titulo, habilidad o empresa">
+                <button type="submit"> Buscar </button>   
+            </form>
+        </section>
 
-                <form role="search">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
-                    <input type="text" placeholder="buscar empleo por titulo, habilidad o empresa">
-                    <button type="submit"> Enviar </button>   
-                </form>
-            </section>
+        <section> 
+            <header> 
+                <h2> Por que DevJobs? </h2>
+                <p> 
+                    DevJobs es la principal plataforma de busqueda de empleo para desarrolladores. 
+                    Conectamos a los mejores talentos con las empresas mas innovadoras.
+                </p>
+            </header>
+            <footer> 
+                <article> 
+                    <h3> Encuentra el trabajo de tus sueños </h3>
+                    <p> Busca miles de empleos de las mejores empresas de todo el mundo </p>
+                </article>
 
-            <section> 
-                <header> 
-                    <h2> Por que DevJobs?</h2>
-                    <p> DevJobs es la principal plataforma de busqueda de empleo para desarrolladores. 
-                        Conectamos a los mejores talentos con las empresas mas innovadoras.
-                    </p>
-                </header>
-                <footer> 
-                    <article> 
-                        <h3> </h3>
-                        <p> </p>
-                    </article>
+                <article> 
+                    <h3> Conecta con las mejores empresas </h3>
+                    <p> Conecta con empresas que estan contratando por tus habilidades </p>
+                </article>
 
-                    <article> 
-                        <h3> </h3>
-                        <p> </p>
-                    </article>
+                <article> 
+                    <h3> Obten el salario que mereces </h3>
+                    <p> Obten el salario que mereces con nuestra calculadora de salarios </p>
+                </article>
+            </footer>
+        </section>
+    </main>
 
-                    <article> 
-                        <h3> </h3>
-                        <p> </p>
-                    </article>
-                </footer>
-            </section>
-        </main>
-
-        <footer> 
-
-        </footer>
-    </body>
+    <footer> 
+        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-copyright"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173" /></svg>
+        2025 DevJobs. Todos los derechos reservados. 
+    </footer>
+</body>
 </html>
