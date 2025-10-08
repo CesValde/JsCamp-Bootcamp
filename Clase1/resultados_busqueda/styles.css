@@ -63,6 +63,13 @@ header button {
     width: 80px;
     color: rgb(1, 102, 209);
     cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+        color: white;
+        background-color: rgb(18, 119, 250);
+        box-shadow: 0 0 8px rgb(18, 119, 250);
+    }
 }
 
 .busqueda {
@@ -178,6 +185,13 @@ section > .ofert-jobs:nth-child(n+1) {
     border-radius: 7px;
     border-style: none;
     background-color: rgb(4, 90, 203);
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+        background-color: rgb(18, 119, 250);
+        box-shadow: 0 0 8px rgb(18, 119, 250);
+    }
 }
 
 .ofert-jobs small {
@@ -212,8 +226,10 @@ footer {
     transition: all .3s;
 
     &:hover, &:focus {
-      background-color: #fff;
-      width: 40px;
+        color: rgb(4, 90, 203);
+        font-weight: 500;
+        background-color: #fff;
+        width: 40px;
     }
 
     &:active {
