@@ -135,7 +135,42 @@ section {
     border-style: solid;
 }
 
+/* 
+    section > .a → selecciona todos los divs .a que son hijos directos del <section>.
+    :nth-child(n+2) → todos los divs desde el segundo en adelante (2, 3 y 4)
+    h3 → dentro de esos divs, selecciona solo el <h3>..
+*/
+section > .ofert-jobs:nth-child(n+1) h3 {
+    padding-top: 2%; 
+}
+
+/* Agrego margen abajo de los p  */
+section > .ofert-jobs:nth-child(n+1) p {
+    font-size: small;
+    color: rgba(197, 196, 196, 0.718);
+    width: 90%;
+    margin-top: 1%;
+    padding-bottom: 2%;
+    line-height: 18px;
+}
+
+/* Agrego margen a la izquierda a todos las etiquetas dentro del div */
+section > .ofert-jobs:nth-child(n+1) {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.ofert-jobs {
+    border-bottom: solid rgba(79, 79, 79, 0.209);
+}
+
+/* Quitar el borde al último */
+.ofert-jobs:last-child {
+    border-bottom: none;
+}
+
 .btn-aplicar {
+    margin-top: 2%;
     color:white;
     float: right;
     height: 2.3rem;
@@ -145,44 +180,10 @@ section {
     background-color: rgb(4, 90, 203);
 }
 
-.a small {
+.ofert-jobs small {
     display: inline-block;      /* Aplico para poder hacer margin-top */
     color: rgba(197, 196, 196, 0.718);
     margin-top: 1%;
-}
-
-.a p {
-    margin-top: 1%;
-}
-
-.parraf-ofertas{
-    font-size: small;
-    color: rgba(197, 196, 196, 0.718);
-    width: 90%;
-}
-
-/* 
-    section > .a → selecciona todos los divs .a que son hijos directos del <section>.
-    :nth-child(n+2) → todos los divs desde el segundo en adelante (2, 3 y 4)
-    h3 → dentro de esos divs, selecciona solo el <h3>..
-*/
-section > .a:nth-child(n+1) h3 {
-    margin-top: 2%; /* o el valor que quieras */
-}
-
-/* Agrego margen abajo de los p  */
-section > .a:nth-child(n+4) p {
-    margin-bottom: 2%; /* o el valor que quieras */
-}
-
-/* Agrego margen a la izquierda a todos las etiquetas dentro del div */
-section > .a:nth-child(n+1)  {
-    margin-left: 2%; /* o el valor que quieras */
-}
-
-/* Agrego margen a la derecha al boton */
-section > .a:nth-child(n+1) button {
-    margin-right: 1.5%; /* o el valor que quieras */
 }
 
 a {
@@ -190,31 +191,43 @@ a {
     text-decoration: none;
 }
 
-hr {
-    border-color: rgba(79, 79, 79, 0.209);
-    height: 1px;
-    width: 100%;
-    margin-top: 2%;
-}
-
 footer {
     text-align: center;
 }
 
 .nums {
-    margin-top: 3%;
-    margin-bottom: 3%;
     display: flex;
-    gap: 15px;              /* espacio entre los números */
-    display: inline-flex;  
+    justify-content: center;
+    gap: 6px;
+    margin-block: 2rem;
 }
 
-.nums span:nth-child(n+1) {
-    padding: 12px;
+.nums a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.4rem;
+    transition: all .3s;
+
+    &:hover, &:focus {
+      background-color: #fff;
+      width: 40px;
+    }
+
+    &:active {
+      transform: scale(0.90);
+    }
 }
 
-.nums span:nth-child(2) {
+.nums span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px 0 10px;
+}
+
+.nums a:nth-child(2) {
     background-color: rgb(4, 90, 203);
-    border-radius: 8px;
-    width: 40px;
 }
