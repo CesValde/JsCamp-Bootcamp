@@ -192,6 +192,14 @@ section > .ofert-jobs:nth-child(n+1) {
         background-color: rgb(18, 119, 250);
         box-shadow: 0 0 8px rgb(18, 119, 250);
     }
+
+    &.esta-aplicado {
+        height: 2.3rem;
+        width: 8rem;
+        background-color: rgb(9, 182, 35);
+        box-shadow: 0 0 8px rgb(9, 182, 35);
+        transition: background-color .6s, box-shadow .6s, color 0s;     /* color sin transición */
+    }
 }
 
 .ofert-jobs small {
