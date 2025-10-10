@@ -11,25 +11,23 @@ body {
 }   
 
 header {
-    display: flex ;
-    height: auto; 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     border-bottom: 2px solid rgba(79, 79, 79, 0.209);
 }
 
 .head-left,
 .head-right {
+    display: flex;
     padding: 10px 20px;
     background-color: #010d1e;
 }
 
 .head-left {
-    font-size: 20px ;
-    display: inline-flex;  
-    align-items: center;        /* Centra etiquetas en el medio del bloque*/
+    font-size: 20px;
+    align-items: center;            /* Centra etiquetas en el medio del bloque*/
     gap: 6px;
     padding-left: 25px ;
+    width: 90%;
 }
 
 .head-left a:nth-of-type(n+2) {
@@ -38,10 +36,8 @@ header {
 }
 
 .head-right {
-    display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding-left: 780px;
 }
 
 img {
