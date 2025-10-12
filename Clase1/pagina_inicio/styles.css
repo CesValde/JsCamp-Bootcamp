@@ -216,9 +216,7 @@ main section:nth-child(2) footer article span svg{
 main section:nth-child(2) footer article h3 {
     font-size: 24px;
     padding: 20px 120px 0 120px;
-
-
-    padding: 0 10%;   /* usa porcentajes o media queries */
+    padding: 3% 25%;   /* usa porcentajes o media queries */
 }
 
 main section:nth-child(2) footer article p {
@@ -226,8 +224,7 @@ main section:nth-child(2) footer article p {
     line-height: 22px;
     padding: 10px 140px 20px 140px;
     color: #b4b6b8d7;
-
-    padding: 0 10%;   /* usa porcentajes o media queries */
+    padding: 0 25% 2% 25%;   /* usa porcentajes o media queries */
 }
 
 /* footer */
