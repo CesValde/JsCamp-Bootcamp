@@ -1,3 +1,3 @@
 # Pagina_inicio
 
-![Vista Previa](./pagina_inicio/vista.png)
+![Vista Previa](./pagina_inicio/vistaApp.png)
