@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;     /* hace que padding y border no aumenten el ancho */
+}
+
+body {
+    color: white; 
+    background-color: #010d1e;
+    font-family: Arial, Helvetica, sans-serif;
+}   
+
+header {
+    display: flex;
+    border-bottom: 2px solid rgba(79, 79, 79, 0.209);
+}
+
+.head-left,
+.head-right {
+    display: flex;
+    padding: 10px 20px;
+    background-color: #010d1e;
+}
+
+.head-left {
+    font-size: 20px;
+    align-items: center;            /* Centra etiquetas en el medio del bloque*/
+    gap: 6px;
+    padding-left: 25px ;
+    width: 90%;
+}
+
+.head-left a:nth-of-type(n+2) {
+    margin-left: 20px;              /* espacio mayor entre los demás links */
+    font-size: 14px;
+}
+
+.head-right {
+    align-items: center;
+    gap: 10px;
+
+    svg {
+        position: absolute;
+        margin-left: .7rem;
+        color: rgba(200, 199, 199, 0.509);
+    }
+}
+
+a {
+    text-decoration: none;
+    
+    &:nth-child(2) {
+        color: white;
+    }
+
+    &:nth-child(n+3) {
+        color: #b4b6b8d7;
+    }
+
+    &:hover {
+        color: rgb(0, 94, 255);
+    }
+}
+
+img {
+    border-radius: 30px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+header svg {
+    color: rgb(0, 94, 255);
+}
+
+header input {
+    height: 30px;
+    width: 250px;
+    padding: 5px 40px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    background-color: #0f213a;
+
+    &:focus {
+        color: white;
+        outline: none;
+    }
+}
+
+header button {
+    background-color: rgb(0, 49, 105);
+    border-style: none;
+    border-radius: 8px;
+    height: 30px;
+    width: 80px;
+    color: rgb(1, 102, 209);
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+        color: white;
+        background-color: rgb(18, 119, 250);
+        box-shadow: 0 0 8px rgb(18, 119, 250);
+    }
+}
+
+
+/* main */
+
+main  {
+    margin-bottom: 80px;
+    
+    p:nth-child(1) {
+        color: #b4b6b8d7;
+        padding-top: 40px;
+        padding-left: 180px;
+    }
+
+    span {
+        color: white;
+    }  
+}
+
+.contenedor {
+    display: grid;
+    background-color: rgba(2, 10, 53, 0.745);
+    margin: 30px 180px 0 180px;
+    padding: 20px 25px;
+    gap: 30px;
+
+    p {
+        font-size: 14px;
+    }
+
+    div:nth-child(1) {
+        small {
+            color: #b4b6b8d7;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    }
+
+    div:nth-child(2), :nth-child(5) {
+        display: grid;
+        gap: 16px;
+        line-height: 22px;
+    }
+
+    div:nth-child(3), :nth-child(4) {
+        font-size: 15px;
+        display: grid;
+        gap: 10px;
+
+        .svg-list {
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        .svg-list li {
+            list-style: none;           /* Quitamos los números */
+            position: relative;
+            padding-left: 2.5rem;       /* Espacio para el ícono */
+            margin: 0.8rem 0;
+            line-height: 1.5;
+        }
+
+        /* Ícono SVG como pseudo-elemento */
+        .svg-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: .1px;
+            width: 1.8rem;
+            height: 1.8rem;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23007ACC' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><path d='M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0'/><path d='M9 12l2 2l4 -4'/></svg>");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Efecto hover opcional */
+        .svg-list li:hover::before {
+            filter: brightness(1.2);
+            transform: scale(1.05);
+            transition: all 0.15s ease;
+        }
+    }
+
+    button {
+        color:white;
+        float: right;
+        height: 2.3rem;
+        width: 8rem;
+        border-radius: 7px;
+        border-style: none;
+        background-color: rgb(4, 90, 203);
+        cursor: pointer;
+        transition: all .3s;
+
+        &:hover {
+            background-color: rgb(18, 119, 250);
+            box-shadow: 0 0 8px rgb(18, 119, 250);
+        }
+    }
+
+    footer {
+        border-top: 2px solid rgba(79, 79, 79, 0.209);
+        padding-top: 20px;
+    }
+}
