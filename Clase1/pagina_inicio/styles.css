@@ -258,7 +258,6 @@ body footer:nth-child(3) {
     }
 }
 
-
 @media (max-width: 764px) {
     nav {
         flex-direction: column;
