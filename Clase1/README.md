@@ -1,3 +1,3 @@
-# resultados_busqueda
+# Pagina_inicio
 
-![Vista Previa](../Clase2/resultados_busqueda/resultados_busqueda.png)
+![Vista Previa](./pagina_inicio/127.0.0.1_5500_Clase1_pagina_inicio_index.html.png)
