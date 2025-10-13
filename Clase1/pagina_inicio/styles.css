@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;     /* hace que padding y border no aumenten el ancho */
+    box-sizing: border-box;             /* hace que padding y border no aumenten el ancho */
 }
 
 body {
@@ -123,9 +123,6 @@ form input {
     width: 30.5%;
     border-style: none;
     border-radius: 8px;
-
-
-   
     max-width: 580px;  /* para no crecer demasiado */
 }
 
@@ -177,8 +174,6 @@ main section:nth-child(2) header p {
     line-height: 22px;
 }
 
-
-
 /* Articles */
 
 main section:nth-child(2) footer {
@@ -216,7 +211,7 @@ main section:nth-child(2) footer article span svg{
 main section:nth-child(2) footer article h3 {
     font-size: 24px;
     padding: 20px 120px 0 120px;
-    padding: 3% 25%;   /* usa porcentajes o media queries */
+    padding: 3% 25%;                /* usa porcentajes o media queries */
 }
 
 main section:nth-child(2) footer article p {
@@ -242,7 +237,6 @@ body footer:nth-child(3) {
         gap: 6px;
     }
 }
-
 
 @media (max-width: 1190px) {
     main section:nth-child(2) footer {
