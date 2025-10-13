@@ -11,10 +11,24 @@ botonAplicar.addEventListener('click', function(event) {
     }
 })
 
+const filtros = document.querySelector('.container-filtros')
+const ofertas = document.querySelectorAll('.ofert-jobs')
 
-/* tareita (?) */
-const filter = document.querySelector('#filter-technology')
+filtros.addEventListener('change', () => {
+    // obtener valores de cada select
+    const [categoria, ubicacion, contrato, nivel] = Array.from(filtros.querySelectorAll('select')).map(s => s.value)
 
-filter.addEventListener('change', function () {
-    console.log(filter.value)
+    ofertas.forEach(oferta => {
+        const coincideCategoria = categoria === 'sector' || oferta.dataset.categoria === categoria
+        const coincideUbicacion = ubicacion === 'ubicacion' || oferta.dataset.ubicacion === ubicacion
+        const coincideContrato  = contrato === 'tipo-de-contrato' || oferta.dataset.contrato === contrato
+        const coincideNivel = nivel === 'nivel-de-experiencia' || oferta.dataset.nivel === nivel
+
+        // si todos coinciden → mostrar
+        if (coincideCategoria && coincideUbicacion && coincideContrato && coincideNivel) {
+            oferta.style.display = 'block'
+        } else {
+            oferta.style.display = 'none'
+        }
+    })
 })

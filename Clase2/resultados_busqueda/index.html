@@ -31,21 +31,22 @@
 
         <div class="container-filtros">  
             <select name="select">
-                <option value="tecnologia" selected>Tecnología</option>
+                <option value="sector" selected>Sector</option>
+                <option value="tecnologia">Tecnología</option>
                 <option value="salud">Salud</option>
                 <option value="finanzas">Finanzas</option>
             </select>
             
             <select name="select">
                 <option value="ubicacion" selected>Ubicacion</option>
-                <option value="españa">España</option>
+                <option value="presencial">Presencial</option>
                 <option value="remoto">Remoto</option>
             </select>
             
             <select name="select">
                 <option value="tipo-de-contrato" selected>Tipo de contrato</option>
                 <option value="contrato">Contrato</option>
-                <option value="remporada">Temporada</option>
+                <option value="temporal">Temporal</option>
             </select>
             
             <select name="select">
@@ -59,7 +60,12 @@
     </div>
 
     <section> 
-        <div class="ofert-jobs"> 
+        <div class="ofert-jobs"
+            data-categoria="tecnologia"
+            data-ubicacion="remoto" 
+            data-contrato="contrato"
+            data-nivel="senior"
+        >
             <button class="btn-aplicar"> Aplicar</button>
             <h3 class="title-ofertas"> Ingeniero de Software </h3>
             <small class="descrip-ofertas"> Tech Solutions Inc. | Remoto </small>
@@ -69,7 +75,12 @@
             </p>       
         </div>
 
-        <div class="ofert-jobs"> 
+        <div class="ofert-jobs"
+            data-categoria="tecnologia"
+            data-ubicacion="presencial" 
+            data-contrato="contrato"
+            data-nivel="senior"
+        >
             <button class="btn-aplicar"> Aplicar</button>
             <h3 class="title-ofertas"> Analista de datos </h3>
             <small class="descrip-ofertas"> Data Driven Co. | Ciudad de Mexico </small>
@@ -79,7 +90,12 @@
             </p>
         </div>
 
-        <div class="ofert-jobs"> 
+        <div class="ofert-jobs"
+            data-categoria="tecnologia"
+            data-ubicacion="presencial" 
+            data-contrato="temporal"
+            data-nivel="junior"
+        >
             <button class="btn-aplicar"> Aplicar</button>
             <h3 class="title-ofertas"> Desarrollador de Aplicaciones Moviles </h3>
             <small class="descrip-ofertas"> Mobile Apps Ltd. | Guadalajara </small>
@@ -89,7 +105,12 @@
             </p>
         </div>
 
-        <div class="ofert-jobs"> 
+        <div class="ofert-jobs"
+            data-categoria="tecnologia"
+            data-ubicacion="remoto" 
+            data-contrato="contrato"
+            data-nivel="junior"
+        >
             <button class="btn-aplicar"> Aplicar</button>
             <h3 class="title-ofertas"> Ingeniero de DevOps </h3>
             <small class="descrip-ofertas"> Cloud Services SA | Remoto </small>
