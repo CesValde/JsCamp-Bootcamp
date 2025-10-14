@@ -1,3 +1,4 @@
+// evento a los botones de cada oferta para cambiar el contenido y color
 const botonAplicar = document.querySelector('section')
 
 botonAplicar.addEventListener('click', function(event) {
@@ -11,13 +12,18 @@ botonAplicar.addEventListener('click', function(event) {
     }
 })
 
+
+// cada vez que se aplique un filtro se escuchara el evento que mostrara las ofertas con dicho filtro 
 const filtros = document.querySelector('.container-filtros')
 const ofertas = document.querySelectorAll('.ofert-jobs')
 
 filtros.addEventListener('change', () => {
     // obtener valores de cada select
+    // array.from convierte los nodos del html a un array comun 
+    // mapeo los select con los nuevos valores
     const [categoria, ubicacion, contrato, nivel] = Array.from(filtros.querySelectorAll('select')).map(s => s.value)
 
+    // se recorren las ofertas y compara los valores por defecto o los nuevos valores mapeados
     ofertas.forEach(oferta => {
         const coincideCategoria = categoria === 'sector' || oferta.dataset.categoria === categoria
         const coincideUbicacion = ubicacion === 'ubicacion' || oferta.dataset.ubicacion === ubicacion
