@@ -1,10 +1,10 @@
 # resultados_busqueda 
 
 ## Con JS
-![Vista Previa](./resultados_busqueda/resultados_busqueda_JS.png)
+![Vista Previa](./resultados_busqueda/img/resultados_busqueda_JS.png)
 
 ## Sin JS
-![Vista Previa](./resultados_busqueda/resultados_busqueda.png)
+![Vista Previa](./resultados_busqueda/img/resultados_busqueda.png)
 
 ---
 

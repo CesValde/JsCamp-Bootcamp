@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Resultados de Busqueda </title>
     <link rel="stylesheet" type="text/css" href="styles.css" media="screen">
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./main.js"></script>
 </head>
 <body>
     <header> 
@@ -19,7 +19,7 @@
         </div>
         <div class="head-right"> 
             <button> Subir CV </button>
-            <img src="./uifaces-popular-avatar.jpg">
+            <devjobs-avatar username="CesValde" size="36"> </devjobs-avatar>
         </div>
     </header>
      
@@ -31,26 +31,32 @@
 
         <div class="container-filtros">  
             <select name="select">
-                <option value="sector" selected>Sector</option>
-                <option value="tecnologia">Tecnología</option>
-                <option value="salud">Salud</option>
-                <option value="finanzas">Finanzas</option>
+                <option value="" selected>Tecnología</option>
+                <option value="html"> HTML </option>
+                <option value="css"> CSS </option>
+                <option value="js"> javascript </option>
+                <option value="node"> Node.Js </option>
+                <option value="react"> React </option>
+                <option value="sql"> SQL </option>
+                <option value="php"> PHP </option>
+                <option value="ts"> Typescript </option>
+                <option value="qa"> QA </option>
             </select>
             
             <select name="select">
-                <option value="ubicacion" selected>Ubicacion</option>
-                <option value="presencial">Presencial</option>
-                <option value="remoto">Remoto</option>
+                <option value="" selected> Modalidad </option>
+                <option value="on site"> On site </option>
+                <option value="remoto"> Remoto </option>
             </select>
             
             <select name="select">
-                <option value="tipo-de-contrato" selected>Tipo de contrato</option>
-                <option value="contrato">Contrato</option>
-                <option value="temporal">Temporal</option>
+                <option value="" selected>Tipo de contrato</option>
+                <option value="full time"> Full time </option>
+                <option value="part time"> Part Time </option>
             </select>
             
             <select name="select">
-                <option value="nivel-de-experiencia" selected>Nivel de experiencia</option>
+                <option value="" selected>Nivel de experiencia</option>
                 <option value="junior">Junior</option>
                 <option value="senior">Senior</option>
             </select>
@@ -58,67 +64,9 @@
 
         <h2> Resultados de Busqueda </h2>
     </div>
-
+    
     <section> 
-        <div class="ofert-jobs"
-            data-categoria="tecnologia"
-            data-ubicacion="remoto" 
-            data-contrato="contrato"
-            data-nivel="senior"
-        >
-            <button class="btn-aplicar"> Aplicar</button>
-            <h3 class="title-ofertas"> Ingeniero de Software </h3>
-            <small class="descrip-ofertas"> Tech Solutions Inc. | Remoto </small>
-            <p class="parraf-ofertas"> 
-                Buscamos un ingeniero de software con experiencia en desarrollo web y concocimientos en Javascript, React
-                y Node,js. El candidato ideal debe ser capaz de trabajar en equipo y tener buenas habilidades de comunicacion.
-            </p>       
-        </div>
-
-        <div class="ofert-jobs"
-            data-categoria="tecnologia"
-            data-ubicacion="presencial" 
-            data-contrato="contrato"
-            data-nivel="senior"
-        >
-            <button class="btn-aplicar"> Aplicar</button>
-            <h3 class="title-ofertas"> Analista de datos </h3>
-            <small class="descrip-ofertas"> Data Driven Co. | Ciudad de Mexico </small>
-            <p class="parraf-ofertas"> 
-                Estamos buscando un analista de datos con experiencia en el manejo de grandes conjuntos de datos
-                y herramientas de visualizacion. Se requiere concocimientos en SQL, Python y R.
-            </p>
-        </div>
-
-        <div class="ofert-jobs"
-            data-categoria="tecnologia"
-            data-ubicacion="presencial" 
-            data-contrato="temporal"
-            data-nivel="junior"
-        >
-            <button class="btn-aplicar"> Aplicar</button>
-            <h3 class="title-ofertas"> Desarrollador de Aplicaciones Moviles </h3>
-            <small class="descrip-ofertas"> Mobile Apps Ltd. | Guadalajara </small>
-            <p class="parraf-ofertas"> 
-                Buscamos un desarrollador de aplicaciones moviles con experiencia en iOS y/o Android.
-                El candidato debe tener conocimientos en Swift, Kotlin y el desarrollo de interfaces de usuario.
-            </p>
-        </div>
-
-        <div class="ofert-jobs"
-            data-categoria="tecnologia"
-            data-ubicacion="remoto" 
-            data-contrato="contrato"
-            data-nivel="junior"
-        >
-            <button class="btn-aplicar"> Aplicar</button>
-            <h3 class="title-ofertas"> Ingeniero de DevOps </h3>
-            <small class="descrip-ofertas"> Cloud Services SA | Remoto </small>
-            <p class="parraf-ofertas"> 
-                Estamos buscando un ingeniero de DevOps con experiencia en la gestion de infraestructuras en la nube,
-                automatizacion de procesos y herramientas de integracion continua. Se requiere conocimientos en AWS, Azure o GCP.
-            </p>
-        </div>
+        <!-- Se insertan los empleos de forma dinamica desde 'fetch-data' -->
     </section>
 
     <footer>
