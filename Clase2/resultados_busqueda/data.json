@@ -56,7 +56,7 @@
     "titulo": "Frontend Developer",
     "empresa": "TechVision Corp",
     "ubicacion": "Remoto",
-    "descripcion": "Desarrollador frontend con experiencia en ts y CSS. Conocimiento de buenas prácticas y testing.",
+    "descripcion": "Desarrollador frontend con experiencia en Typescript y CSS. Conocimiento de buenas prácticas y testing.",
     "data": {
       "technology": ["ts", "css"],
       "modalidad": "remoto",
