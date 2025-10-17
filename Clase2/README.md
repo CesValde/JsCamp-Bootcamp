@@ -7,7 +7,7 @@
 ![Vista Previa](./resultados_busqueda/img/resultados_busqueda_JS.png)
 
 ## Manejos Dinamicos y filtros
-![Vista Previa](./resultados_busqueda/img/majeno-de-filtros.png)
+![Vista Previa](./resultados_busqueda/img/manejo-de-filtros.png)
 
 # Detalles_oferta
 
