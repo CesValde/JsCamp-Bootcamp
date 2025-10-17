@@ -235,9 +235,12 @@ footer {
         background-color: #fff;
         width: 40px;
     }
-
-    &:active {
-      transform: scale(0.90);
+    
+    &.active {
+        background-color: #007bff;  /* color de fondo distinto */
+        color: white;               /* texto blanco */
+        border-radius: 4px;           /* esquinas redondeadas */
+        padding: 4px 8px;
     }
 }
 
@@ -246,8 +249,4 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 0 10px 0 10px;
-}
-
-.nums a:nth-child(2) {
-    background-color: rgb(4, 90, 203);
 }
