@@ -1,1 +1,73 @@
+section {
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 10px;
+    border: rgba(79, 79, 79, 0.209);
+    border-style: solid;
+}
 
+/* 
+    section > .a → selecciona todos los divs .a que son hijos directos del <section>.
+    :nth-child(n+2) → todos los divs desde el segundo en adelante (2, 3 y 4)
+    h3 → dentro de esos divs, selecciona solo el <h3>..
+*/
+section > .ofert-jobs:nth-child(n+1) h3 {
+    padding-top: 2%; 
+}
+
+/* Agrego margen abajo de los p  */
+section > .ofert-jobs:nth-child(n+1) p {
+    font-size: small;
+    color: rgba(197, 196, 196, 0.718);
+    width: 90%;
+    margin-top: 1%;
+    padding-bottom: 2%;
+    line-height: 18px;
+}
+
+/* Agrego margen a la izquierda a todos las etiquetas dentro del div */
+section > .ofert-jobs:nth-child(n+1) {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.ofert-jobs {
+    border-bottom: solid rgba(79, 79, 79, 0.209);
+}
+
+/* Quitar el borde al último */
+.ofert-jobs:last-child {
+    border-bottom: none;
+}
+
+.btn-aplicar {
+    margin-top: 2%;
+    color:white;
+    float: right;
+    height: 2.3rem;
+    width: 5rem;
+    border-radius: 7px;
+    border-style: none;
+    background-color: rgb(4, 90, 203);
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+        background-color: rgb(18, 119, 250);
+        box-shadow: 0 0 8px rgb(18, 119, 250);
+    }
+
+    &.esta-aplicado {
+        height: 2.3rem;
+        width: 8rem;
+        background-color: rgb(9, 182, 35);
+        box-shadow: 0 0 8px rgb(9, 182, 35);
+        transition: background-color .6s, box-shadow .6s, color 0s;     /* color sin transición */
+    }
+}
+
+.ofert-jobs small {
+    display: inline-block;      /* Aplico para poder hacer margin-top */
+    color: rgba(197, 196, 196, 0.718);
+    margin-top: 1%;
+}
