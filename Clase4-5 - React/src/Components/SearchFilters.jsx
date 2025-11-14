@@ -10,8 +10,11 @@ export function SearchFilters({ onSearch, onTextFilter }) {
     const idExperience = useId()
 
     const handleSubmit = (event) => {
-        event.preventDefault()     
-        const formData = new FormData(event.target)
+        event.preventDefault()
+
+        // event.currentTarget --> escucha el evento
+        // even.target --> recibe el evento
+        const formData = new FormData(event.currentTarget)
 
         const filters = {
             technology: formData.get(idTechnology),
@@ -32,7 +35,7 @@ export function SearchFilters({ onSearch, onTextFilter }) {
             <h1> Encuentra tu proximo trabajo </h1>
             <p> Explora miles de oportunidades en el sector tecnologico. </p>
 
-            <form onSubmit={handleSubmit}> 
+            <form onChange={handleSubmit}> 
                 <div className={styles.inputSearch}> 
                     <svg xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
 
@@ -43,7 +46,7 @@ export function SearchFilters({ onSearch, onTextFilter }) {
 
                         /* onFocus - onBlur */
                     />
-                    <button type="submit"> Buscar</button>
+                    {/* <button type="submit"> Buscar</button> */}
                 </div> 
 
                 <div className={styles.searchFilters}>  
@@ -80,7 +83,7 @@ export function SearchFilters({ onSearch, onTextFilter }) {
                 </div>
             </form>
 
-            <span> ni idea que ira aca </span> 
+            {/* <span> ni idea que ira aca </span>  */}
         </section>
     )
 }
