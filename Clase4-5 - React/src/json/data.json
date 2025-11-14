@@ -6,7 +6,7 @@
     "ubicacion": "Remoto",
     "descripcion": "Buscamos un frontend developer con experiencia en React y CSS moderno. Se valorará conocimiento en diseño responsive.",
     "data": {
-      "technology": "js",
+      "technology": ["js"],
       "modalidad": "remoto",
       "contrato": "full time",
       "nivel": "junior"
