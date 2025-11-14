@@ -3,28 +3,28 @@
    justify-content: center;
    gap: 6px;
    margin-block: 2rem;
+}
 
-   a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 0.4rem;
-      transition: all .3s;
+.pagination a {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 2.5rem;
+   height: 2.5rem;
+   border-radius: 0.4rem;
+   transition: all .3s;
 
-      &:hover, &:focus {
-         color: rgb(4, 90, 203);
-         font-weight: 500;
-         background-color: #fff;
-         width: 40px;
-      }
-      
-      &.active {
-         background-color: #007bff;  /* color de fondo distinto */
-         color: white;               /* texto blanco */
-         border-radius: 4px;           /* esquinas redondeadas */
-         padding: 4px 8px;
-      }
+   &:hover, &:focus {
+      color: rgb(4, 90, 203);
+      font-weight: 500;
+      background-color: #fff;
+      width: 40px;
+   }
+   
+   &.active {
+      background-color: #007bff;  /* color de fondo distinto */
+      color: white;               /* texto blanco */
+      border-radius: 4px;           /* esquinas redondeadas */
+      padding: 4px 8px;
    }
 }

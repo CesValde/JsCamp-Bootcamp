@@ -26,19 +26,8 @@ a {
     color: rgba(255, 255, 255, 0.913);
     text-decoration: none;
 }
-/* 
-main {
-    background-color: purple;
-} */
-
-/* Ofert jobs */
-section {
-   /*  background-color: blue; */
-    margin-left: 15%;
-    margin-right: 15%;
-}
 
 footer {
-    padding: 10px 0 10px 0;
+    padding: 20px 0 20px 0;
     text-align: center;
 }
