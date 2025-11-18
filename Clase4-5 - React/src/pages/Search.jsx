@@ -1,43 +1,55 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { SearchFilters } from '../Components/SearchFilters.jsx'
 import { OfertJobs } from '../Components/OfertJobs.jsx'
 import { Pagination } from '../Components/Pagination.jsx'
-import jobsData from '../json/data.json'
 
 const RESULTS_PER_PAGE = 4
 
-export function SearchPage () {
+const useFilters = () => {
    const [filters, setFilters] = useState({
       technology: '',
-      modality: '',
+      location: '',
       experience: ''
    })
    const [textToFilter, setTextToFilter] = useState("")
    const [currentPage, setCurrentPage] = useState(1)
+   const [jobs, setJobs] = useState([])
+   const [total, setTotal] = useState(0)
+   const [loading, setLoading] = useState(true)
 
-   // filtrado por opciones
-   const jobsFiltersByFilters = jobsData.filter(job => {
-      return (
-         (filters.technology === '' || job.data.technology.includes(filters.technology))
-         /* aplicar los otros filtros */
-      ) 
-   })
+   useEffect(() => {
+      async function fetchJobs() {
+         try {
+            setLoading(true)
 
-   // filtrado por texto
-   const jobsWithTextFilter = textToFilter === ""
-      ? jobsFiltersByFilters 
-      : jobsFiltersByFilters.filter(job => {
-         return job.titulo.toLowerCase().includes(textToFilter.toLowerCase())
-      })
+            const params = new URLSearchParams()
+            if(textToFilter) params.append('text', textToFilter)
+            if(filters.technology) params.append('technology', filters.technology)
+            if(filters.modalidad) params.append('type', filters.modalidad)
+            if(filters.nivel) params.append('level', filters.nivel)
+
+            const offset = (currentPage -1 ) * RESULTS_PER_PAGE
+            params.append('limit', RESULTS_PER_PAGE)
+            params.append('offset', offset)
+
+            const queryParams = params.toString()
+            const response = await fetch(`https://jscamp-api.vercel.app/api/jobs?${queryParams}`)
+            const json = await response.json()
+
+            setJobs(json.data)
+            setTotal(json.total)
+         } catch (error) {
+            console.error('Error fetching jobs: ', error)
+         } finally {
+            setLoading(false)
+         }
+      }
+
+      fetchJobs()
+   }, [filters, textToFilter, currentPage])
 
    // renderiza luego de filtrar 
-   const totalPages = Math.ceil(jobsWithTextFilter.length / RESULTS_PER_PAGE)
-
-   // ofertas a renderizar por pagina
-   const pagedResults = jobsWithTextFilter.slice(
-      (currentPage - 1) * RESULTS_PER_PAGE, 
-      currentPage * RESULTS_PER_PAGE
-   )
+   const totalPages = Math.ceil(total / RESULTS_PER_PAGE)
 
    // actualiza el estado de la pagina actual
    const handlePageChange = (page) => {
@@ -54,13 +66,43 @@ export function SearchPage () {
       setCurrentPage(1)
    }
 
+   return {
+      loading,
+      jobs,
+      total,
+      totalPages,
+      currentPage,
+      handlePageChange,
+      handleSearch,
+      handleTextFilter
+   }
+}
+
+export function SearchPage () {
+   const  {
+      jobs,
+      total,
+      loading,
+      totalPages, 
+      currentPage,
+      handlePageChange,
+      handleSearch,
+      handleTextFilter
+   } = useFilters()
+
+   const title = loading 
+   ? `Cargando... - DebJobs` 
+   : `Resultados: ${total}, Pagina ${currentPage} - DevJobs`
+
    return (
       <>
+         <title> {title} </title>
          <main> 
             <SearchFilters onSearch={handleSearch} onTextFilter={handleTextFilter}  />
         
             <section> 
-               <OfertJobs jobs={pagedResults}/>
+               <h2 style={{ textAlign: "center", padding: "20px 0" }}> Resultados de Busqueda </h2>
+               <OfertJobs jobs={jobs}/>
                <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
             </section>
          </main>

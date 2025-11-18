@@ -1,13 +1,10 @@
 import { useState, useId } from "react"
 import styles from '../SearchFilters.module.css'
 
-export function SearchFilters({ onSearch, onTextFilter }) {
-    const [selected, setSelected] = useState("Tecnologia")
-    const idSearch = useId()
-    const idTechnology = useId()
-    const idModality = useId()
-    const idContract = useId()
-    const idExperience = useId()
+let timeoutId = null
+
+export const useSearchFilters = ({ idTechnology, idLocation, idNivel, onSearch, idSearch,  onTextFilter }) => {
+    const [searchText, setSearchText] = useState("")
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -16,10 +13,12 @@ export function SearchFilters({ onSearch, onTextFilter }) {
         // even.target --> recibe el evento
         const formData = new FormData(event.currentTarget)
 
+        if(event.target.name === idSearch) {return}
+
         const filters = {
             technology: formData.get(idTechnology),
-            modality: formData.get(idModality),
-            experience: formData.get(idExperience)
+            modalidad: formData.get(idLocation),
+            nivel: formData.get(idNivel)
         }
 
         onSearch(filters)
@@ -27,8 +26,34 @@ export function SearchFilters({ onSearch, onTextFilter }) {
 
     const handleTextChange = (event) => {
         const text = event.target.value
-        onTextFilter(text)
+        setSearchText(text)
+
+        // DEBOUNCE: Cancelar el timeout anterior
+        if(timeoutId) {
+            clearTimeout(timeoutId)
+        }
+
+        timeoutId = setTimeout(() => {
+            onTextFilter(text)     
+        }, 500)
     }
+
+    return {
+        searchText,
+        handleSubmit,
+        handleTextChange
+    }
+}
+
+export function SearchFilters({ onSearch, onTextFilter }) {
+    const [selected, setSelected] = useState("Tecnologia")
+
+    const idSearch = useId()
+    const idTechnology = useId()
+    const idLocation = useId()
+    const idNivel = useId()
+
+    const { handleSubmit, handleTextChange } = useSearchFilters({ idTechnology, idLocation, idNivel, onSearch, idSearch, onTextFilter })
     
     return (
         <section className={styles.busqueda}> 
@@ -43,47 +68,35 @@ export function SearchFilters({ onSearch, onTextFilter }) {
                         type="text" 
                         placeholder="Buscar trabajos, empresas o habilidades" 
                         onChange={handleTextChange}
-
-                        /* onFocus - onBlur */
                     />
-                    {/* <button type="submit"> Buscar</button> */}
                 </div> 
 
                 <div className={styles.searchFilters}>  
                     <select name={idTechnology} value={selected} onChange={(e) => setSelected(e.target.value)}>
                         <option value="">Tecnología</option>
-                        <option value="html"> HTML </option>
-                        <option value="css"> CSS </option>
-                        <option value="js"> Javascript </option>
+                        <option value="javascript"> Javascript </option>
+                        <option value="python"> Python </option>
+
+
                         <option value="node"> Node.Js </option>
                         <option value="react"> React </option>
                         <option value="sql"> SQL </option>
-                        <option value="php"> PHP </option>
-                        <option value="ts"> Typescript </option>
-                        <option value="qa"> QA </option>
                     </select>
                     
-                    <select name={idModality}>
-                        <option value=""> Modalidad </option>
-                        <option value="on site"> On site </option>
+                    <select name={idLocation}>
+                        {/* Revisar los campos en la API */}
+                        <option value=""> Ubicacion </option>
                         <option value="remoto"> Remoto </option>
                     </select>
                     
-                    <select name={idContract}>
-                        <option value="">Tipo de contrato</option>
-                        <option value="full time"> Full time </option>
-                        <option value="part time"> Part Time </option>
-                    </select>
-                    
-                    <select name={idExperience}>
+                    <select name={idNivel}>
+                        {/* Revisar los campos en la API */}
                         <option value="">Nivel de experiencia</option>
                         <option value="junior">Junior</option>
                         <option value="senior">Senior</option>
                     </select>
                 </div>
             </form>
-
-            {/* <span> ni idea que ira aca </span>  */}
         </section>
     )
 }
