@@ -1,0 +1,136 @@
+.sectionUp {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url(../img/background.webp);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 160px 100px 100px 100px;
+    align-items: center;
+}
+
+.sectionUp h1 {
+    font-size: 55px;
+}
+
+.sectionUp p {
+    color: #b4b6b8d7;
+    padding: 1% 30% 1% 30%;
+}
+
+.sectionUp form {
+    align-items: center;
+    position: relative;
+}
+
+.sectionUp form svg {
+    position: absolute;
+    top: 22%;
+    left: 32%;
+    transform: translateX(0);
+    color: rgba(200, 199, 199, 0.509);
+}
+
+.sectionUp form input {
+    color: white;
+    background-color: #173056;
+    padding-left: 50px;
+    height: 45px;
+    width: 100%;
+    border-style: none;
+    border-radius: 8px;
+    max-width: 580px;
+}
+
+.sectionUp form input:focus {
+    color: white;
+    outline: none;
+}
+
+.sectionUp input::placeholder {
+    color: rgba(255, 255, 255, 0.465);
+    opacity: 1;
+}
+
+.sectionUp form button {
+    position: absolute;
+    top: 11%;
+    right: 31.5%;
+    color: white;
+    width: 80px;
+    height: 35px;
+    border-radius: 8px;
+    border-style: none;
+    background-color: rgb(2, 118, 243);
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+      color: white;
+      background-color: rgb(52, 137, 248);
+      box-shadow: 0 0 8px rgb(18, 119, 250);
+   }
+}
+
+/* .sectionDown { */
+.sectionDown {
+    padding-bottom: 80px;
+    border-bottom: 2px solid rgba(32, 33, 36, 0.554);
+}
+
+.sectionDown header {
+    padding-top: 100px;
+    padding-bottom: 40px ;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.sectionDown h2 {
+    font-size: 34px;
+}
+
+/* ARTICLES GRID */
+.sectionDown footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Cards */
+.sectionDown article {
+    background-color: #12274f;
+    padding: 30px 0 20px 0;
+    margin: 0 16px 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.sectionDown span {
+    background-color: #06389a61;
+    border-radius: 50%;
+    padding: 14px 10px 20px 14.5px;
+    display: flex;
+    height: 60px;
+    width: 60px;
+}
+
+.sectionDown svg {
+    color: #0066ff;
+    height: 30px;
+    width: 30px;
+}
+
+.sectionDown h3 {
+    font-size: 24px;
+    padding: 2% 20% 0 20%;
+    line-height: 26px;
+}
+
+.sectionDown p {
+    color: #b4b6b8d7;
+    width: 55%;
+    text-align: center;
+    padding-top: 10px;
+    line-height: 24px;
+}
