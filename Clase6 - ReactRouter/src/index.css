@@ -1,0 +1,41 @@
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    background-color: #010d1e;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;     /* hace que padding y border no aumenten el ancho */
+}
+
+a {
+    color: rgba(255, 255, 255, 0.913);
+    text-decoration: none;
+}
+
+footer {
+    padding: 20px 0 20px 0;
+    text-align: center;
+}
+
+/* estilos activos */
+.nav-active {
+    color: aqua;
+    pointer-events: none;
+    opacity: .5;
+    user-select: none;
+}
