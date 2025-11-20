@@ -1,9 +1,8 @@
-import { useState, useId } from "react"
+import { useState, useId, useRef } from "react"
 import styles from '../SearchFilters.module.css'
 
-let timeoutId = null
-
 export const useSearchFilters = ({ idTechnology, idLocation, idNivel, onSearch, idSearch,  onTextFilter }) => {
+    const timeoutId = useRef(null)
     const [searchText, setSearchText] = useState("")
 
     const handleSubmit = (event) => {
@@ -17,8 +16,8 @@ export const useSearchFilters = ({ idTechnology, idLocation, idNivel, onSearch, 
 
         const filters = {
             technology: formData.get(idTechnology),
-            modalidad: formData.get(idLocation),
-            nivel: formData.get(idNivel)
+            location: formData.get(idLocation),
+            experienceLevel: formData.get(idNivel)
         }
 
         onSearch(filters)
@@ -29,14 +28,14 @@ export const useSearchFilters = ({ idTechnology, idLocation, idNivel, onSearch, 
         setSearchText(text)
 
         // DEBOUNCE: Cancelar el timeout anterior
-        if(timeoutId) {
-            clearTimeout(timeoutId)
+        if(timeoutId.current) {
+            clearTimeout(timeoutId.current) 
         }
 
-        timeoutId = setTimeout(() => {
+        timeoutId.current = setTimeout(() => {
             onTextFilter(text)     
         }, 500)
-    }
+    } 
 
     return {
         searchText,
@@ -45,15 +44,20 @@ export const useSearchFilters = ({ idTechnology, idLocation, idNivel, onSearch, 
     }
 }
 
-export function SearchFilters({ onSearch, onTextFilter }) {
-    const [selected, setSelected] = useState("Tecnologia")
-
+export function SearchFilters({ onSearch, onTextFilter, initialText }) {
     const idSearch = useId()
     const idTechnology = useId()
     const idLocation = useId()
     const idNivel = useId()
+    const inputRef = useRef()
 
     const { handleSubmit, handleTextChange } = useSearchFilters({ idTechnology, idLocation, idNivel, onSearch, idSearch, onTextFilter })
+
+    const handleClearInput = (event) => {
+        event.preventDefault()
+        inputRef.current.value = ""
+        onTextFilter("")
+    } 
     
     return (
         <section className={styles.busqueda}> 
@@ -64,20 +68,21 @@ export function SearchFilters({ onSearch, onTextFilter }) {
                 <div className={styles.inputSearch}> 
                     <svg xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
 
+                    <button onClick={handleClearInput}> Limpiar Input </button>
                     <input name={idSearch} 
+                        ref={inputRef}
                         type="text" 
                         placeholder="Buscar trabajos, empresas o habilidades" 
                         onChange={handleTextChange}
+                        defaultValue={initialText} 
                     />
                 </div> 
 
                 <div className={styles.searchFilters}>  
-                    <select name={idTechnology} value={selected} onChange={(e) => setSelected(e.target.value)}>
+                    <select name={idTechnology}>
                         <option value="">Tecnología</option>
                         <option value="javascript"> Javascript </option>
                         <option value="python"> Python </option>
-
-
                         <option value="node"> Node.Js </option>
                         <option value="react"> React </option>
                         <option value="sql"> SQL </option>
