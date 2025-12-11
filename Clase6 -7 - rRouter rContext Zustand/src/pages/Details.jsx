@@ -2,8 +2,10 @@ import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router"
 import styles from "./Details.module.css"
 import snarkdown from "snarkdown"
-import { Link } from "../Components/Link"
-import { useAuthStore } from "../store/authStore"
+import { Link } from "../Components/Link.jsx"
+import { useAuthStore } from "../store/authStore.js"
+import { useFavoriteStore } from "../store/favoriteStore.js"
+
 
 function JobSection({ title, content }) {
    const html = snarkdown(content)
@@ -15,7 +17,7 @@ function JobSection({ title, content }) {
          <div
             className={`${styles.sectionContent} prose`}
             dangerouslySetInnerHTML={{
-               __html: html,
+               __html: html
             }}
          />
       </section>
@@ -47,6 +49,7 @@ function DetailPageHeader({ job, isLoggedIn }) {
          </header>
 
          <DetailApplyButton />
+         <DetailsFavoriteButton jobId={job.id} />
       </>
    )
 }
@@ -58,6 +61,19 @@ function DetailApplyButton() {
       <button disabled={!isLoggedIn} className={styles.applyButton}>
          {isLoggedIn ? "Aplicar ahora" : "inicia sesion para aplicar"}
       </button>
+   )
+}
+
+function DetailsFavoriteButton({ jobId }) {
+   const { toggleFavorite, isFavorite } = useFavoriteStore()
+
+   return (
+      <button
+         className={styles.btnCancel}
+         onClick={() => toggleFavorite(jobId)}
+      >
+         {isFavorite(jobId) ? "❌" : "❤"}
+      </button> 
    )
 }
 
@@ -123,6 +139,7 @@ export default function JobDetail() {
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 1rem" }}>
          <DetailsPageBreadCrumb job={job} />
          <DetailPageHeader job={job} />
+         
 
          <JobSection
             title="Descripción del puesto"

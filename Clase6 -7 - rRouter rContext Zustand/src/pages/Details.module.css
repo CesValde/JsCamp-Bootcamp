@@ -105,6 +105,21 @@
   background: #666;
 }
 
+.btnCancel {
+   height: 2rem;
+   width: 5rem;
+   border-radius: 7px;
+   border-style: none;
+   cursor: pointer;
+   transition: all 0.3s;
+   background-color: rgb(163, 12, 12);
+
+   &:hover {
+      background-color: rgb(239, 3, 3);
+      box-shadow: 0 0 8px rgb(250, 18, 18);
+   }
+}
+
 @media (min-width: 640px) {
   .applyButton {
     width: auto;

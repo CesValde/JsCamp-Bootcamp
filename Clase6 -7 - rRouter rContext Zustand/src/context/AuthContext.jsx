@@ -16,7 +16,7 @@ export function AuthProvider({ children }) {
    const value = {
       isLoggedIn,
       login,
-      logout,
+      logout
    }
 
    return <AuthContext value={value}>{children}</AuthContext>
@@ -25,8 +25,8 @@ export function AuthProvider({ children }) {
 export function useAuth() {
    const context = useContext(AuthContext)
 
-   if(context === undefined) {
-      throw new Error('tenes que usarlo guey')
+   if (context === undefined) {
+      throw new Error("tenes que usarlo guey")
    }
 
    return context

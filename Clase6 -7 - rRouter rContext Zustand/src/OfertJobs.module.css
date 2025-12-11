@@ -1,0 +1,118 @@
+/* div que encapsula a las todas las ofertas */
+.ofertJobs {
+   border: solid rgba(79, 79, 79, 0.209);
+   border-radius: 10px;
+   margin: 0 15% 0 15%;
+}
+
+/* Quitar el borde a la última oferta */
+.ofertJob:last-child {
+   border-bottom: none;
+}
+
+/* div que encapsula la card de la oferta */
+.ofertJob {
+   display: flex;
+   padding-left: 2%;
+   padding-right: 2%;
+   border-bottom: solid rgba(79, 79, 79, 0.209);
+}
+
+.descrip {
+   width: 100%;
+}
+
+.descrip h3 {
+   width: max-content;
+   padding-top: 1.5%;
+
+   &:hover {
+      text-decoration: underline;
+   }
+}
+
+.descrip small {
+   display: inline-block; /* Aplico para poder hacer margin-top */
+   color: rgba(197, 196, 196, 0.718);
+   padding-top: 0.4%;
+}
+
+/* Agrego margen abajo de los p */
+.descrip p {
+   font-size: small;
+   color: rgba(197, 196, 196, 0.718);
+   width: 90%;
+   padding-top: 0.8%;
+   padding-bottom: 2%;
+   line-height: 18px;
+}
+
+/* Botones de la oferta */
+.actions {
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+}
+
+.details {
+   color: #09f;
+   background: none;
+   border: none;
+   cursor: pointer;
+   font-size: 0.8rem;
+   text-decoration: none;
+
+   &:hover {
+      text-decoration: underline;
+   }
+}
+
+.btnCancel {
+   height: 2rem;
+   width: 5rem;
+   border-radius: 7px;
+   border-style: none;
+   cursor: pointer;
+   transition: all 0.3s;
+   background-color: rgb(163, 12, 12);
+
+   &:hover {
+      background-color: rgb(239, 3, 3);
+      box-shadow: 0 0 8px rgb(250, 18, 18);
+   }
+}
+
+.btnApplied {
+   color: white;
+   height: 2.3rem;
+   width: 5rem;
+   border-radius: 7px;
+   border-style: none;
+   background-color: rgb(4, 90, 203);
+   cursor: pointer;
+   transition: all 0.3s;
+
+   &:hover {
+      background-color: rgb(18, 119, 250);
+      box-shadow: 0 0 8px rgb(18, 119, 250);
+   }
+
+   &.isApplied {
+      height: 2.3rem;
+      width: 8rem;
+      background-color: rgb(9, 182, 35);
+      box-shadow: 0 0 8px rgb(9, 182, 35);
+      transition:
+         background-color 0.6s,
+         box-shadow 0.6s,
+         color 0s; /* color sin transición */
+   }
+}
+
+button:disabled {
+   cursor: not-allowed;
+   opacity: 0.5;
+}

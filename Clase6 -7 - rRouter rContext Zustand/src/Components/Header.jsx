@@ -1,12 +1,16 @@
-import { Link } from "../Components/Link.jsx"
 import { NavLink } from "react-router"
+import { Link } from "../Components/Link.jsx"
 import { useAuthStore } from "../store/authStore.js"
+import { useFavoriteStore } from "../store/favoriteStore.js"
 
 import styles from "../Header.module.css"
 import "../js/devjobs-avatar-element.js"
 
-
 export function Header() {
+   const { isLoggedIn } = useAuthStore()
+   const { countFavorites } = useFavoriteStore()
+   const numberOfFav = countFavorites()
+
    return (
       <header className={styles.headerStyle}>
          <div className={styles.leftSide}>
@@ -30,18 +34,16 @@ export function Header() {
                className={({ isActive }) => (isActive ? "nav-active" : "")}
                to="/search"
             >
-               {" "}
-               Empleos{" "}
+               Empleos
             </NavLink>
 
-            <Link href="*"> Empresas </Link>
-            <Link href="*"> Salarios </Link>
+            {isLoggedIn && (
+               <NavLink to="/profile"> Favoritos ❤ {numberOfFav}</NavLink>
+            )}
          </div>
          <div className={styles.rightSide}>
             <button> Subir CV </button>
-            <devjobs-avatar username="CesValde" size="36">
-               {" "}
-            </devjobs-avatar>
+            <devjobs-avatar username="CesValde" size="36"></devjobs-avatar>
          </div>
 
          <HeaderUserButton />
@@ -51,10 +53,16 @@ export function Header() {
 
 const HeaderUserButton = () => {
    const { isLoggedIn, login, logout } = useAuthStore()
+   const { clearfavorites } = useFavoriteStore()
+
+   const handleLogout = () => {
+      logout()
+      clearfavorites()
+   }
 
    return isLoggedIn ? (
-      <button onClick={logout}> Cerrar sesion </button>
+      <button onClick={handleLogout}> Cerrar sesion </button>
    ) : (
-      <button onClick={login}> sesion </button>
+      <button onClick={login}> Iniciar sesion </button>
    )
 }
