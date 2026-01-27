@@ -13,8 +13,12 @@ app.use("/jobs", jobsRouter)
 
 if (!process.env.NODE_ENV) {
    app.listen(PORT, () => {
+      console.log(process.env.NODE_ENV)
       console.log(`Servidor levantado en http://localhost:${PORT}`)
    })
 }
+console.log(process.env.NODE_ENV)
 
 export default app
+
+// npm run dev:prod
