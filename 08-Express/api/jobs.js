@@ -1,12 +1,5 @@
-import fs from "fs"
+import jobs from "../src/data/jobs.json"
 
 export default function handler(req, res) {
-   try {
-      const filePath = new URL("../src/data/jobs.json", import.meta.url)
-      const jobs = JSON.parse(fs.readFileSync(filePath, "utf-8"))
-
-      res.status(200).json(jobs)
-   } catch (error) {
-      res.status(500).json({ error: error.message })
-   }
+   res.status(200).json(jobs)
 }
