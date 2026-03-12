@@ -1,4 +1,4 @@
-import jobs from "../src/data/jobs.json"
+import jobs from "../api/jobs.json" assert { type: "json" } 
 
 export default function handler(req, res) {
    res.status(200).json(jobs)
