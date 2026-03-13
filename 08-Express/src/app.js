@@ -12,10 +12,10 @@ app.use(corsMiddleware())
 app.use(express.json())
 app.use("/jobs", jobsRouter)
 
-/* if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== "production") {
    app.listen(PORT, () => {
       console.log(`Servidor levantado en http://localhost:${PORT}`)
    })
-} */
+}
 
 export default app
