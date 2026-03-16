@@ -53,7 +53,7 @@ const useFilters = () => {
             const queryParams = params.toString()
 
             const response = await fetch(
-               `https://clase8-express-4pssa3ish-cesar-valderramas-projects.vercel.app/jobs?${queryParams}`
+               `${import.meta.env.VITE_API_URL}/jobs?${queryParams}`
             )
             const json = await response.json()
 
@@ -67,7 +67,7 @@ const useFilters = () => {
       }
 
       fetchJobs()
-   }, [filters, textToFilter, currentPage])
+   }, [filters, currentPage, textToFilter])
 
    useEffect(() => {
       setSearchParams((params) => {
