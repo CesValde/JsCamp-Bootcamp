@@ -6,6 +6,7 @@ import { Link } from "../Components/Link.jsx"
 import { useAuthStore } from "../store/authStore.js"
 import { useFavoriteStore } from "../store/favoriteStore.js"
 
+const API_URL = import.meta.env.VITE_API_URL_LOCAL
 
 function JobSection({ title, content }) {
    const html = snarkdown(content)
@@ -73,7 +74,51 @@ function DetailsFavoriteButton({ jobId }) {
          onClick={() => toggleFavorite(jobId)}
       >
          {isFavorite(jobId) ? "❌" : "❤"}
-      </button> 
+      </button>
+   )
+}
+
+function AISummary({ jobId }) {
+   const [summary, setSummary] = useState(null)
+   const [loading, setLoading] = useState(false)
+   const [error, setError] = useState(null)
+
+   const generateSummary = async () => {
+      setLoading(true)
+      setError(null)
+
+      try {
+         const response = await fetch(`${API_URL}/ai/summary/${jobId}`)
+         if (!response.ok) {
+            throw new Error("Error fetching summary")
+         }
+
+         const data = await response.json()
+         setSummary(data.summary)
+      } catch (error) {
+         setError("Error al generar el resumen")
+      } finally {
+         setLoading(false)
+      }
+   }
+
+   /* si el resumen fue generado lo muestra */
+   if (summary) {
+      return (
+         <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Resumen generado con IA</h2>
+
+            <div className={styles.sectionContent}>
+               <p className={styles.sectionContent}>{summary}</p>
+            </div>
+         </section>
+      )
+   }
+
+   return (
+      <button onClick={generateSummary} disabled={loading}>
+         {loading ? "Generando resumen..." : "Generar resumen con IA"}
+      </button>
    )
 }
 
@@ -86,7 +131,7 @@ export default function JobDetail() {
    const [error, setError] = useState(null)
 
    useEffect(() => {
-      fetch(`https://jscamp-api.vercel.app/api/jobs/${jobId}`)
+      fetch(`${API_URL}/jobs/${jobId}`)
          .then((response) => {
             if (!response.ok) {
                navigate("/not-found")
@@ -139,7 +184,7 @@ export default function JobDetail() {
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 1rem" }}>
          <DetailsPageBreadCrumb job={job} />
          <DetailPageHeader job={job} />
-         
+         <AISummary jobId={job.id} />
 
          <JobSection
             title="Descripción del puesto"
