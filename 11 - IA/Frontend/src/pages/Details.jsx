@@ -109,7 +109,7 @@ function AISummary({ jobId }) {
             <h2 className={styles.sectionTitle}>Resumen generado con IA</h2>
 
             <div className={styles.sectionContent}>
-               <p className={styles.sectionContent}>{summary}</p>
+               <p>{summary}</p>
             </div>
          </section>
       )
