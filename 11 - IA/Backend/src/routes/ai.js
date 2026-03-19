@@ -1,14 +1,24 @@
 process.loadEnvFile()
 
 import { Router } from "express"
-import OpenAI from "openai"
+import { streamText } from "ai"
+import rateLimit from "express-rate-limit"
+
 import { JobModel } from "../models/job.js"
+import { CONFIG } from "../config.js"
+
+const aiRateLimiter = rateLimit({
+   windowMs: 60 * 1000, // -> 1 minuto
+   limit: 5, // -> 5 peticiones por IP por minuto
+   message: {
+      error: "Demasiadas solicitudes, por favor intenta de nuevo más tarde."
+   },
+   legacyHeaders: false,
+   standardHeaders: "draft-8" // devuelve headers estándard RateLimit-*
+})
 
 export const aiRouter = Router()
-
-const openai = new OpenAI({
-   apiKey: process.env.OPENAI_API_KEY
-})
+aiRouter.use(aiRateLimiter)
 
 aiRouter.get("/summary/:id", async (req, res) => {
    const { id } = req.params
