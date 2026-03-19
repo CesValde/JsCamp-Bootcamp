@@ -5,6 +5,8 @@ import snarkdown from "snarkdown"
 import { Link } from "../Components/Link.jsx"
 import { useAuthStore } from "../store/authStore.js"
 import { useFavoriteStore } from "../store/favoriteStore.js"
+import { useAISummary } from "../hooks/useAISummary.jsx"
+import { Streamdown } from "streamdown"
 
 const API_URL = import.meta.env.VITE_API_URL_LOCAL
 
@@ -79,28 +81,7 @@ function DetailsFavoriteButton({ jobId }) {
 }
 
 function AISummary({ jobId }) {
-   const [summary, setSummary] = useState(null)
-   const [loading, setLoading] = useState(false)
-   const [error, setError] = useState(null)
-
-   const generateSummary = async () => {
-      setLoading(true)
-      setError(null)
-
-      try {
-         const response = await fetch(`${API_URL}/ai/summary/${jobId}`)
-         if (!response.ok) {
-            throw new Error("Error fetching summary")
-         }
-
-         const data = await response.json()
-         setSummary(data.summary)
-      } catch (error) {
-         setError("Error al generar el resumen")
-      } finally {
-         setLoading(false)
-      }
-   }
+   const { summary, loading, generateSummary } = useAISummary(jobId)
 
    /* si el resumen fue generado lo muestra */
    if (summary) {
@@ -109,7 +90,7 @@ function AISummary({ jobId }) {
             <h2 className={styles.sectionTitle}>Resumen generado con IA</h2>
 
             <div className={styles.sectionContent}>
-               <p>{summary}</p>
+               <Streamdown isAnimating={loading}> {summary}</Streamdown>
             </div>
          </section>
       )
