@@ -1,20 +1,30 @@
 {
-  "name": "13-ci-cd",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^11.3.0",
-      "onFail": "download"
-    }
-  },
-  "type": "module"
+   "name": "13-ci-cd",
+   "version": "1.0.0",
+   "description": "",
+   "type": "module",
+   "scripts": {
+      "dev:frontend": "pnpm --filter @MiduCamp-ci/frontend dev",
+      "dev:backend": "pnpm --filter @MiduCamp-ci/backend dev",
+      "lint:frontend": "pnpm --filter @MiduCamp-ci/frontend lint",
+      "lint:backend": "pnpm --filter @MiduCamp-ci/backend lint",
+      "lint": "pnpm -r lint",
+      "test:frontend": "pnpm --filter @MiduCamp-ci/frontend test",
+      "test:backend": "pnpm --filter @MiduCamp-ci/backend test",
+      "test": "pnpm -r test",
+      "build:frontend": "pnpm --filter @MiduCamp-ci/frontend build",
+      "build:backend": "pnpm --filter @MiduCamp-ci/backend build",
+      "build": "pnpm -r build",
+      "start:backend": "pnpm --filter @MiduCamp-ci/backend start"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "devEngines": {
+      "packageManager": {
+         "name": "pnpm",
+         "version": "^11.3.0",
+         "onFail": "download"
+      }
+   }
 }
