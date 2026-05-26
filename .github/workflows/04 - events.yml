@@ -9,6 +9,6 @@ jobs:
       steps:
          - name: Inspect event
            run: |
-              echo "Event name: ${{ github.event_name }}"
-              echo "issue: ${{ github.event.issue.body }}"
+              echo "Event: ${{ github.event_name }}"
+              echo "issue: ${{ github.event.issue.number }}"
               echo "comment: ${{ github.event.comment.body }}" 
