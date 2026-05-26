@@ -7,7 +7,6 @@ on:
 jobs:
    hello:
       runs-on: ubuntu-24.04
-
       steps:
          - name: Saludar
            run: echo "Hello from GitHub Actions!"
@@ -16,4 +15,13 @@ jobs:
            run: date
 
          - name: See files availables
+           run: ls -la
+
+   repo-files:
+      runs-on: ubuntu-24.04
+      steps:
+         - name: Download repository files
+           uses: actions/checkout@v6
+
+         - name: List repository files
            run: ls -la
