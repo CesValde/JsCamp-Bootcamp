@@ -10,7 +10,7 @@ jobs:
    inspect-event:
       runs-on: ubuntu-24.04
       permissions:
-         issues: write 
+         issues: write
 
       steps:
          - name: Inspect event
@@ -27,3 +27,17 @@ jobs:
               GITHUB_REPOSITORY: ${{ github.repository }}
            run: |
               gh issue comment "$ISSUE_NUMBER" --body "Thanks for opening this issue! We will look into it as soon as possible." -- repo "$GITHUB_REPOSITORY"
+
+         - name: Comment as repository owner in GitHub Actions
+           if: github.event_name == 'issues' && github.event.action == 'opened'
+           env:
+              AUTHOR_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+              ISSUE_NUMBER: ${{ github.event.issue.number }}
+           run: |
+              if [[ -z "$AUTHOR_TOKEN" ]]; then
+                 echo "::warning::PERSONAL_ACCESS_TOKEN is not set. Skipping comment as repository owner."
+                 exit 0
+              fi
+              GH_TOKEN="$AUTHOR_TOKEN" gh issue comment "$ISSUE_NUMBER" \
+                 --repo "$GITHUB_REPOSITORY" \
+                 --body "Hello, I am the owner of the repository responding personally. Please check the contribution guide in the meantime."
