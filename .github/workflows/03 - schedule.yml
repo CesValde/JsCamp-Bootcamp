@@ -1,0 +1,12 @@
+name: 03 - Schedule
+
+on: 
+   schedule:
+      - cron: '0 0 * * *' # Runs every day at midnight
+
+jobs:
+   scheduled:
+      runs-on: ubuntu-24.04
+      steps:
+         - name: Show scheduled run
+           run: echo "This workflow runs on a schedule at midnight every day"
