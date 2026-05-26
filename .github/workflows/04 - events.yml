@@ -1,0 +1,14 @@
+name: 04 - Events
+
+on:
+   issue_comment:
+
+jobs:
+   inspect-event:
+      runs-on: ubuntu-24.04
+      steps:
+         - name: Inspect event
+           run: |
+              echo "Event name: ${{ github.event_name }}"
+              echo "issue: ${{ github.event.issue.body }}"
+              echo "comment: ${{ github.event.comment.body }}" 
