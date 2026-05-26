@@ -26,5 +26,8 @@
          "version": "^11.3.0",
          "onFail": "download"
       }
+   },
+   "devDependencies": {
+      "eslint": "^10.4.0"
    }
 }
