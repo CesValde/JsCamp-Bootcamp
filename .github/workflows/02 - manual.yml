@@ -1,17 +1,58 @@
 name: 02 - Manual
 
-on: 
+on:
    workflow_dispatch:
+      inputs:
+         log_level:
+            description: "Log level"
+            required: true
+            default: "info"
+            type: choice
+            options:
+               - debug
+               - info
+               - warning
+               - error
+         environment:
+            description: "Environment"
+            type: environment
+
+         dry_run:
+            description: "Dry run without making any changes"
+            required: false
+            default: false
+            type: boolean
+
+         reason:
+            description: "Reason for manual trigger"
+            required: false
+            default: "Manual trigger"
+            type: string
 
 jobs:
    manual:
       runs-on: ubuntu-24.04
       steps:
-         - name: Saludar
-           run: echo "Hello from GitHub Actions!"
+         - name: Show inputs
+           env:
+              LOG_LEVEL: ${{ inputs.log_level }}
+              ENVIRONMENT: ${{ inputs.environment }}
+              DRY_RUN: ${{ inputs.dry_run }}
+              REASON: ${{ inputs.reason }}
+           run: |
+              echo "Log level: $LOG_LEVEL"
+              echo "Environment: $ENVIRONMENT"
+              echo "Dry run: $DRY_RUN"
+              echo "Reason: $REASON"
 
-         - name: See date of runner
-           run: date
+         - name: deploy only if not dry run
+           if: ${{ !inputs.dry_run }}
+           env:
+              ENVIRONMENT: ${{ inputs.environment }}
+           run: |
+              echo "Deploying to $ENVIRONMENT"
 
-         - name: See files availables
-           run: ls -la
+         - name: only if log is dry run
+           if: ${{ inputs.dry_run }}
+           run: |
+              echo "This is a dry run, no changes will be made"
