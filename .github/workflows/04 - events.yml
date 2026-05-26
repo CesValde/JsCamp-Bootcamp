@@ -11,4 +11,13 @@ jobs:
            run: |
               echo "Event: ${{ github.event_name }}"
               echo "issue: ${{ github.event.issue.number }}"
-              echo "comment: ${{ github.event.comment.body }}" 
+              echo "comment: ${{ github.event.comment.body }}"
+
+         - name: Comment how a bot in GitHub Actions
+           if: ${{ github.event_name == 'issues' && github.event.action == 'opened' }}
+           env:
+              GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              ISSUE_NUMBER: ${{ github.event.issue.number }}
+              GITHUB_REPOSITORY: ${{ github.repository }}
+           run: |
+              gh issue comment "$ISSUE_NUMBER" --body "Thanks for opening this issue! We will look into it as soon as possible." -- repo "$GITHUB_REPOSITORY"
