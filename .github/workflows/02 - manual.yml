@@ -31,7 +31,8 @@ on:
 
 jobs:
    manual:
-      runs-on: ubuntu-24.04
+      # runs-on: self-hosted -> in case you want to run on your own machine
+      runs-on: ubuntu-24.04 
       steps:
          - name: Show inputs
            env:
