@@ -12,7 +12,7 @@ jobs:
       
       defaults:
          run:
-            working-directory: 13 - ci-cd
+            working-directory: 13-ci-cd
       
       steps:
          - name: Checkout code
